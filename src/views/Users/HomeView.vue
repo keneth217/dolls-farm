@@ -30,7 +30,7 @@
 }
 .back{
 
-          background: url(../../assets/animals/IMG_20220104_133028_2.jpg);
+          background: url(../../assets/animals/cow.jpg);
           background-size: cover; /* Make the background image cover the entire container */
           background-position: center center; /* Center the background image */
           height: 600px;
