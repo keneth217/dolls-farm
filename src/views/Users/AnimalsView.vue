@@ -56,7 +56,7 @@
             </div>
           </div>
           <div v-if="paginatedAnimalData.length === 0" class="col text-center">
-            <p>No data is available.</p>
+            <p>No Animal data is available.</p>
           </div>
           <hr>
           <nav aria-label="Page navigation example">
