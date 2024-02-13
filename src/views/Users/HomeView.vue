@@ -34,6 +34,7 @@
           background-size: cover; /* Make the background image cover the entire container */
           background-position: center center; /* Center the background image */
           height: 600px;
+          border-image: fill 0 linear-gradient(#0003,#000700);
       
 }
 </style>
