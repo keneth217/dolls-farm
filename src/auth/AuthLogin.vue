@@ -1,5 +1,5 @@
 <template>
-    <section class="min-vh-100 d-flex align-items-center text-center background">
+    <section class="min-vh-100 d-flex align-items-center bg-dark text-center background">
         <div class="container-fluid mb-3" >
             <div class="row justify-content-center" >
                 <div class="col-md-6 text-primary mt-5 font-weight-bold text-center text-uppercase">
@@ -100,7 +100,7 @@ export default {
 </script>
 <style scoped>
 .background {
-    background: url(../assets/animals/calves.jpg);
+    background: url(../assets/animals/login.jpg) no-repeat;
     width: 100%;
     min-height: 100vh;
     text-align: center;
@@ -108,7 +108,7 @@ export default {
     background-attachment: fixed;
 
     background-position: center;
-    background-size: cover;
+    /* background-size: cover; */
     opacity: 1;
 
 }
