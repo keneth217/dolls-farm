@@ -105,7 +105,7 @@ export default {
     text-align: center;
     display: flex;
     background-attachment: fixed;
-
+border-image: fill 0 linear-gradient(#0003,#000700);
     background-position: center;
     /* background-size: cover; */
     opacity: 1;
