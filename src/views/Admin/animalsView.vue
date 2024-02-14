@@ -1,5 +1,6 @@
 <template>
-    <div class="container">
+     <section class="min-vh-100 text-white bg-dark background">
+    <div class="container-fluid text-center">
         <div class="row  justify-content-center p-3">
             <div class="col-md-6   font-weight-bold text-center text-white">
                 <h3> AVAILABLE animalS</h3>
@@ -25,53 +26,53 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="text-white"> found animals:({{ totalAnimals }})</div>
+                    <div class="text-white"> Total Animals:({{ totalAnimals }})</div>
                 </div>
 
             </div>
         </div>
         <hr>
-        <div class="col text-center text-white" v-if="animal_data.length === 0">
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border mx-auto text-warning" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
+        <div class="col text-center" v-if="loading">
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border text-warning" role="status">
+              <span class="visually-hidden">Loading...</span>
             </div>
-            <h4>
-                No records of animals found.Will be added sooon keep checking...
-
-            </h4>
+          </div>
         </div>
-        <div v-else class="row justify-content-center">
-            <div class="col-md-4 col-sm-12 mb-3 mx-auto" v-for="(animal, index) in paginatedAnimalData"
-                :key="index">
-                <div class="card border-primary" style="width: 20rem; height: 30rem;">
-                    <img :src="animal.image" class="card-img-top" style="width: 20rem;height: 20rem;" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ animal.type }}</h5>
-                        <h5 class="card-title">{{ animal.owner }}</h5>
-                        <router-link type="button" class="btn btn-info" :to="`/dashboard/single/${animal.id}`">view
-                            more</router-link>
-                    </div>
+        <div v-else>
+          <div class="row justify-content-center">
+            <div class="col-md-4 col-sm-12 mb-3 " v-for="(animal, index) in paginatedAnimalData" :key="index">
+              <div class="card border-primary" style="width: 20rem; height: 30rem;">
+                <img :src="animal.image" class="card-img-top" style="width: 20rem;height: 20rem;" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Type:{{ animal.type }}</h5>
+                  <h5 class="card-title">Owner:{{ animal.owner}}</h5>
+                  <router-link type="button" class="btn btn-info" :to="`/animal/${animal.id}/${animal.owner}`">View More</router-link>
                 </div>
+              </div>
             </div>
-        </div>
-        <hr>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item" :class="{ disabled: currentPage === 1 }">
-                    <a class="page-link" @click="changePage(currentPage - 1)">Previous</a>
-                </li>
-                <li class="page-item" v-for="page in totalPages" :key="page" :class="{ active: currentPage === page }">
-                    <a class="page-link" @click="changePage(page)">{{ page }}</a>
-                </li>
-                <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-                    <a class="page-link" @click="changePage(currentPage + 1)">Next</a>
-                </li>
+          </div>
+          <div v-if="paginatedAnimalData.length === 0" class="col text-center">
+            <p>No Animal data is available.</p>
+          </div>
+          <hr>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+              <li class="page-item" :class="{ disabled: currentPage === 1 }">
+                <a class="page-link" @click="changePage(currentPage - 1)">Previous</a>
+              </li>
+              <li class="page-item" v-for="page in totalPages" :key="page" :class="{ active: currentPage === page }">
+                <a class="page-link" @click="changePage(page)">{{ page }}</a>
+              </li>
+              <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+                <a class="page-link" @click="changePage(currentPage + 1)">Next</a>
+              </li>
             </ul>
-        </nav>
-        <hr>
-    </div>
+          </nav>
+          <hr>
+        </div>
+   </div>
+</section>
 </template>
 
 <script>
