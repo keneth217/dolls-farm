@@ -59,9 +59,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col card shadow border-primary mt-5 py-3 min-vh-100">
+            <div class="col card shadow border-primary  py-3 min-vh-100">
                 <p class="lead text-center">{{ greetingMessage }}:<span class="text-primary text-center">{{ userEmail }}</span></p>
-              
+              <p class="lead text-danger text-center">Welcom To Farm Management System Dashboard</p>
                 <router-view></router-view>
             </div>
         </div>
